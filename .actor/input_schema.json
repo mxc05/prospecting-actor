@@ -1,0 +1,93 @@
+{
+  "title": "Prospecting Actor Input Schema",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "platform": {
+      "title": "Target Platform",
+      "type": "string",
+      "description": "Target social platform (MVP: instagram)",
+      "default": "instagram",
+      "enum": ["instagram"],
+      "editor": "select"
+    },
+    "profile_type": {
+      "title": "Profile Type / Persona",
+      "type": "string",
+      "description": "Target professional persona (e.g. social_media_manager, graphic_designer, copywriter)",
+      "default": "social_media_manager",
+      "editor": "textfield"
+    },
+    "location": {
+      "title": "Location Filter",
+      "type": "string",
+      "description": "Geographic location target (e.g., India, London, New York)",
+      "editor": "textfield"
+    },
+    "min_followers": {
+      "title": "Minimum Followers",
+      "type": "integer",
+      "description": "Minimum follower threshold",
+      "default": 1000,
+      "minimum": 0,
+      "editor": "number"
+    },
+    "max_followers": {
+      "title": "Maximum Followers",
+      "type": "integer",
+      "description": "Maximum follower threshold",
+      "default": 50000,
+      "minimum": 0,
+      "editor": "number"
+    },
+    "keywords": {
+      "title": "Search Keywords",
+      "type": "array",
+      "description": "Keywords to discover candidate profiles",
+      "editor": "json",
+      "default": [
+        "social media manager",
+        "freelance social media manager",
+        "social media specialist"
+      ]
+    },
+    "max_results": {
+      "title": "Maximum Results",
+      "type": "integer",
+      "description": "Maximum leads to evaluate/output",
+      "default": 50,
+      "minimum": 1,
+      "editor": "number"
+    },
+    "profile_urls": {
+      "title": "Direct Profile URLs (Optional)",
+      "type": "array",
+      "description": "Supply specific profile URLs to skip discovery phase",
+      "editor": "json",
+      "default": []
+    },
+    "llm_provider": {
+      "title": "LLM Provider",
+      "type": "string",
+      "description": "Select AI model provider (gemini is free via Google AI Studio)",
+      "default": "gemini",
+      "enum": ["gemini", "openai", "openrouter", "none"],
+      "editor": "select"
+    },
+    "gemini_api_key": {
+      "title": "Gemini API Key (Optional override)",
+      "type": "string",
+      "description": "Google AI Studio API key (can also be supplied via GEMINI_API_KEY environment variable)",
+      "isSecret": true,
+      "editor": "hidden"
+    },
+    "openai_api_key": {
+      "title": "OpenAI API Key (Optional override)",
+      "type": "string",
+      "description": "OpenAI API key (can also be supplied via OPENAI_API_KEY environment variable)",
+      "isSecret": true,
+      "editor": "hidden"
+    }
+  },
+  "required": ["platform", "profile_type"]
+}

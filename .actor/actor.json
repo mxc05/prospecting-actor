@@ -1,0 +1,12 @@
+{
+  "actorSpecification": 1,
+  "name": "prospecting-actor",
+  "title": "Prospecting Actor - Professional Lead Qualification",
+  "description": "Discover public profiles, extract professional details, apply filtering, detect signals, classify via AI, score, and output qualified leads.",
+  "version": "1.0.0",
+  "meta": {
+    "templateId": "project_empty"
+  },
+  "input": "./input_schema.json",
+  "dockerfile": "./Dockerfile"
+}

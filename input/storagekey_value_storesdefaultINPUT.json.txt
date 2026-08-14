@@ -1,0 +1,10 @@
+{
+  "platform": "instagram",
+  "profile_type": "social_media_manager",
+  "location": "India",
+  "min_followers": 500,
+  "max_followers": 100000,
+  "keywords": ["social media manager"],
+  "max_results": 10,
+  "llm_provider": "gemini"
+}

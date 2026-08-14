@@ -1,0 +1,31 @@
+name: Deploy Prospecting Actor to Apify
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build TypeScript code
+        run: npm run build
+
+      - name: Deploy to Apify
+        uses: apify/actor-deploy-action@v1
+        with:
+          apify-token: ${{ secrets.APIFY_TOKEN }}
