@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Configurable Apify Actor for professional persona discovery and lead qualification",
-  "main": "dist/main.js",
+  "main": "src/main.ts",
   "scripts": {
-    "start": "node dist/main.js",
-    "start:dev": "tsx src/main.ts",
+    "start": "tsx src/main.ts",
     "build": "tsc",
     "test": "vitest run"
   },
