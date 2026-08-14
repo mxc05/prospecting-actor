@@ -4,8 +4,8 @@ FROM apify/actor-node-playwright-chrome:20
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies safely
-RUN npm install --prefer-offline --no-audit
+# Remove OS lockfile mismatch and run clean Linux npm install
+RUN rm -f package-lock.json && npm install
 
 # Copy source code and build
 COPY . ./
